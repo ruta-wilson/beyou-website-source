@@ -2,17 +2,28 @@ BeYou — Whole & Healthy website (v1)
 =====================================
 
 WHAT'S HERE
-- index.html      the whole website (open this in any browser to view it)
-- images/         all photos used on the site, pulled from the BeYou Instagram
+- index.html       the page structure/content
+- css/styles.css    all styling (colors, layout, fonts)
+- js/script.js      the booking form logic (builds the WhatsApp message)
+- images/           all photos used on the site, pulled from the BeYou Instagram
+
+Splitting things this way makes it easier to change styling or content
+independently as the site grows — e.g. update colors/fonts in styles.css
+without touching the page content in index.html.
 
 HOW TO USE
-1. Keep index.html and the images/ folder together in the same directory —
-   the page loads images from images/... using relative paths, so if you
-   move index.html without the folder, photos will break.
+1. Keep index.html, css/, js/ and images/ together in the same folder —
+   the page loads them all using relative paths, so if you move index.html
+   on its own, styling and photos will break.
 2. Double-click index.html to preview it locally in a browser.
 3. To put it online, upload this whole folder to any web host (e.g. Netlify,
    Vercel, GitHub Pages, or a shared host via FTP) and point the domain at
    index.html.
+
+MAKING CHANGES
+- Text/content (menu items, prices, copy) -> edit index.html
+- Colors, fonts, spacing, layout -> edit css/styles.css
+- Booking form behavior -> edit js/script.js
 
 THINGS TO UPDATE BEFORE LAUNCH
 - The map section is a placeholder — swap it for a real Google Maps embed
