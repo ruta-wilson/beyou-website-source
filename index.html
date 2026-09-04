@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BeYou — Whole & Healthy | Kigali</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap');
+
+  :root{
+    --forest: #16241a;
+    --forest-deep: #0f1a13;
+    --cream: #f6f2e8;
+    --olive: #7c9a2e;
+    --gold: #c9a227;
+    --clay: #a9603a;
+    --ink: #1b1b16;
+    --line: rgba(246,242,232,0.16);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    line-height:1.08;
+    margin:0;
+    color:inherit;
+  }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width:1140px; margin:0 auto; padding:0 32px; }
+  @media (max-width:640px){ .wrap{ padding:0 22px; } }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--forest);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:74px;
+  }
+  .brand{ display:flex; align-items:center; gap:12px; color:var(--cream); text-decoration:none; }
+  .brand img{ width:38px; height:38px; border-radius:50%; object-fit:cover; }
+  .brand span{ font-family:'Fraunces', serif; font-size:1.3rem; letter-spacing:0.02em; }
+  .navlinks{ display:flex; gap:34px; list-style:none; margin:0; padding:0; }
+  .navlinks a{ color:var(--cream); text-decoration:none; font-size:0.95rem; opacity:0.85; }
+  .navlinks a:hover{ opacity:1; }
+  .nav-cta{
+    background:var(--olive); color:var(--forest-deep) !important; opacity:1 !important;
+    padding:10px 18px; border-radius:3px; font-weight:600; font-size:0.9rem !important;
+  }
+  .navtoggle{ display:none; }
+  @media (max-width:800px){
+    .navlinks{ display:none; }
+    .navtoggle{ display:block; background:none; border:none; color:var(--cream); font-size:1.6rem; cursor:pointer; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--forest);
+    color:var(--cream);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px;
+    align-items:center;
+    padding-top:76px; padding-bottom:76px;
+    min-height:560px;
+  }
+  .hero-eyebrow{ color:var(--gold); font-size:1.05rem; font-family:'Fraunces', serif; font-style:italic; margin-bottom:18px;}
+  .hero h1{ font-size:3.6rem; color:var(--cream); }
+  .hero h1 em{ font-style:italic; color:var(--olive); }
+  .hero p.lead{ margin-top:22px; max-width:440px; color:rgba(246,242,232,0.82); font-size:1.08rem; }
+  .hero-actions{ display:flex; gap:16px; margin-top:34px; flex-wrap:wrap; }
+  .btn{
+    display:inline-block; padding:14px 26px; text-decoration:none;
+    border-radius:2px; font-weight:600; font-size:0.95rem;
+    border:1px solid transparent; transition:transform .15s ease;
+  }
+  .btn-primary{ background:var(--gold); color:var(--forest-deep); }
+  .btn-ghost{ border-color:rgba(246,242,232,0.4); color:var(--cream); }
+  .btn:hover{ transform:translateY(-1px); }
+  .hero-meta{ margin-top:36px; display:flex; gap:34px; font-size:0.88rem; color:rgba(246,242,232,0.65); }
+  .hero-meta strong{ display:block; color:var(--cream); font-family:'Fraunces',serif; font-size:1.4rem; font-weight:500; }
+
+  .hero-art{ position:relative; }
+  .hero-art img{ border-radius:6px; }
+  .hero-art .tag{
+    position:absolute; bottom:-22px; left:-22px;
+    background:var(--cream); color:var(--forest-deep);
+    padding:16px 20px; border-radius:4px; max-width:230px;
+    font-size:0.85rem; box-shadow:0 18px 40px rgba(0,0,0,0.35);
+  }
+  .hero-art .tag strong{ display:block; font-family:'Fraunces',serif; font-size:1.05rem; margin-bottom:4px; }
+  @media (max-width:900px){
+    .hero .wrap{ grid-template-columns:1fr; padding-top:48px; }
+    .hero h1{ font-size:2.5rem; }
+    .hero-art{ order:-1; }
+    .hero-art .tag{ position:static; margin-top:16px; max-width:none; }
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{ padding:96px 0; }
+  .section-head{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:end; margin-bottom:52px; }
+  .section-head h2{ font-size:2.4rem; }
+  .section-head p{ color:#4a4a3f; max-width:380px; }
+  @media (max-width:760px){
+    .section{ padding:64px 0; }
+    .section-head{ grid-template-columns:1fr; gap:14px; }
+    .section-head h2{ font-size:1.9rem; }
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{ background:var(--cream); }
+  .about .wrap{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center; }
+  .about-photo{ position:relative; }
+  .about-photo img{ border-radius:6px; }
+  .about-copy p{ color:#3d3d33; font-size:1.05rem; }
+  .about-copy .signoff{ margin-top:26px; font-family:'Fraunces',serif; font-style:italic; color:var(--olive); font-size:1.1rem; }
+  @media (max-width:900px){
+    .about .wrap{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- MENU ---------- */
+  .menu{ background:var(--forest); color:var(--cream); }
+  .menu .section-head p{ color:rgba(246,242,232,0.7); }
+  .menu .section-head h2{ color:var(--cream); }
+  .menu-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .menu-item{ background:var(--forest); padding:0; }
+  .menu-item .photo{ aspect-ratio:4/3; overflow:hidden; }
+  .menu-item .photo img{ width:100%; height:100%; object-fit:cover; }
+  .menu-item .info{ padding:26px 24px 32px; }
+  .menu-item h3{ font-size:1.3rem; color:var(--cream); margin-bottom:8px; }
+  .menu-item .desc{ color:rgba(246,242,232,0.68); font-size:0.92rem; }
+  @media (max-width:820px){ .menu-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- SERVICES ---------- */
+  .services{ background:var(--cream); }
+  .service-list{ border-top:1px solid rgba(27,27,22,0.15); }
+  .service-row{
+    display:grid; grid-template-columns:280px 1fr 140px; gap:24px;
+    padding:28px 0; border-bottom:1px solid rgba(27,27,22,0.15);
+    align-items:baseline;
+  }
+  .service-row h3{ font-size:1.35rem; }
+  .service-row p{ color:#4a4a3f; margin:0; font-size:0.98rem; }
+  .service-row .num{ font-family:'Fraunces',serif; font-style:italic; color:var(--olive); font-size:1rem; text-align:right; }
+  @media (max-width:720px){
+    .service-row{ grid-template-columns:1fr; gap:6px; padding:22px 0; }
+    .service-row .num{ text-align:left; order:-1; }
+  }
+
+  /* ---------- BOOKING ---------- */
+  .book{ background:#efe9d8; }
+  .book .wrap{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:start; }
+  .book-copy p{ color:#4a4a3f; }
+  .book-copy .steps{ margin-top:28px; display:flex; flex-direction:column; gap:16px; }
+  .book-copy .steps div{ display:flex; gap:14px; font-size:0.95rem; align-items:baseline; }
+  .book-copy .steps b{ font-family:'Fraunces',serif; font-style:italic; color:var(--olive); min-width:20px; }
+  .book-form{
+    background:var(--forest); color:var(--cream); padding:40px; border-radius:6px;
+  }
+  .book-form h3{ font-size:1.3rem; color:var(--cream); margin-bottom:6px; }
+  .book-form .sub{ color:rgba(246,242,232,0.65); font-size:0.9rem; margin-bottom:26px; }
+  .field{ margin-bottom:18px; }
+  .field label{ display:block; font-size:0.85rem; margin-bottom:7px; color:rgba(246,242,232,0.8); }
+  .field input, .field select, .field textarea{
+    width:100%; padding:12px 14px; border-radius:3px; border:1px solid rgba(246,242,232,0.25);
+    background:rgba(246,242,232,0.06); color:var(--cream); font-family:'Work Sans',sans-serif; font-size:0.95rem;
+  }
+  .field input::placeholder, .field textarea::placeholder{ color:rgba(246,242,232,0.4); }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .field textarea{ resize:vertical; min-height:70px; }
+  .book-form button{
+    width:100%; padding:14px; margin-top:6px; background:var(--gold); color:var(--forest-deep);
+    border:none; border-radius:3px; font-weight:600; font-size:0.98rem; cursor:pointer;
+  }
+  .book-form button:hover{ filter:brightness(1.05); }
+  .book-note{ font-size:0.78rem; color:rgba(246,242,232,0.5); margin-top:12px; }
+  @media (max-width:900px){
+    .book .wrap{ grid-template-columns:1fr; }
+    .field-row{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- PLANS ---------- */
+  .plans{ background:var(--forest-deep); color:var(--cream); }
+  .plans .section-head h2{ color:var(--cream); }
+  .plans .section-head p{ color:rgba(246,242,232,0.65); }
+  .plan-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-radius:6px; overflow:hidden; }
+  .plan{ padding:44px 32px; position:relative; }
+  .plan:nth-child(1){ background:#324a26; }
+  .plan:nth-child(2){ background:var(--gold); color:var(--forest-deep); }
+  .plan:nth-child(3){ background:#8a7a1f; color:var(--forest-deep); }
+  .plan h3{ font-size:1.5rem; margin-bottom:4px; }
+  .plan .price{ font-family:'Fraunces',serif; font-size:2.1rem; margin:18px 0 22px; }
+  .plan .price span{ font-size:0.95rem; font-family:'Work Sans',sans-serif; opacity:0.75; }
+  .plan ul{ list-style:none; margin:0 0 28px; padding:0; }
+  .plan li{ padding:7px 0; font-size:0.92rem; border-top:1px solid rgba(0,0,0,0.08); }
+  .plan li:first-child{ border-top:none; }
+  .plan a{
+    display:inline-block; text-decoration:none; font-weight:600; font-size:0.9rem;
+    border-bottom:2px solid currentColor; padding-bottom:2px;
+  }
+  @media (max-width:820px){ .plan-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- EVENT ---------- */
+  .event{ background:var(--cream); }
+  .event .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .event-photo img{ border-radius:6px; }
+  .event-copy .hero-eyebrow{ color:var(--clay); }
+  .event-copy h2{ font-size:2.2rem; margin-bottom:18px; }
+  .event-copy p{ color:#3d3d33; }
+  .event-facts{ margin:26px 0; display:flex; flex-direction:column; gap:10px; font-size:0.95rem; }
+  .event-facts div{ display:flex; gap:10px; }
+  .event-facts b{ min-width:88px; color:var(--olive); }
+  @media (max-width:900px){ .event .wrap{ grid-template-columns:1fr; } .event-photo{ order:-1; } }
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  .contact{ background:var(--forest); color:var(--cream); }
+  .contact .wrap{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; padding:88px 32px; }
+  .contact h2{ font-size:2.2rem; color:var(--cream); margin-bottom:18px; }
+  .contact p{ color:rgba(246,242,232,0.72); max-width:420px; }
+  .contact-details{ margin-top:30px; display:flex; flex-direction:column; gap:14px; font-size:0.98rem; }
+  .contact-details a{ text-decoration:none; color:var(--cream); }
+  .contact-details b{ color:var(--gold); display:inline-block; min-width:96px; font-weight:600; }
+  .map-box{
+    background:#0c150e; border:1px solid var(--line); border-radius:6px;
+    display:flex; align-items:center; justify-content:center; min-height:260px;
+    color:rgba(246,242,232,0.55); font-size:0.9rem; text-align:center; padding:24px;
+  }
+  .foot-bottom{
+    border-top:1px solid var(--line); padding:22px 32px; display:flex;
+    justify-content:space-between; align-items:center; font-size:0.82rem; color:rgba(246,242,232,0.55);
+    flex-wrap:wrap; gap:10px;
+  }
+  @media (max-width:820px){ .contact .wrap{ grid-template-columns:1fr; padding:56px 22px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img src="images/logo.jpg" alt="BeYou logo">
+      <span>BeYou</span>
+    </a>
+    <ul class="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#plans">Membership</a></li>
+      <li><a href="#book" class="nav-cta">Book a nutritionist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="hero-eyebrow">Nyarutarama, Kigali</div>
+      <h1>Real food.<br>Real <em>wellness.</em></h1>
+      <p class="lead">BeYou is a holistic healthy space — a nutritive bar, a nutrition coaching practice, and a place to slow down, built around one idea: your health journey isn't about becoming someone else.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/250795448852" target="_blank" rel="noopener">Message us on WhatsApp</a>
+        <a class="btn btn-ghost" href="#menu">See today's bowls</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>5</strong>services on offer</div>
+        <div><strong>292</strong>people in the tribe</div>
+        <div><strong>6 KG 552 St</strong>our home</div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="images/veggie_circle.jpg" alt="Half plate of fresh vegetables and fruit">
+      <div class="tag"><strong>Whole & Healthy</strong>Nutritionist-curated, always. Nothing on the menu is there by accident.</div>
+    </div>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-photo">
+      <img src="images/shop_interior.jpg" alt="Inside the BeYou space in Nyarutarama">
+    </div>
+    <div class="about-copy">
+      <div class="hero-eyebrow" style="color:var(--olive)">Our space</div>
+      <h2 style="font-size:2.1rem; margin-bottom:18px;">A quiet corner of Nyarutarama, built to slow you down.</h2>
+      <p>Walk in and you'll find shelves of loose herbs and adaptogens — baobab, lion's mane, moringa, cacao — a nutritive bar plating fresh bowls each morning, and a team that would rather talk about how you're actually feeling than sell you a diet.</p>
+      <p>BeYou brings together a nutritive bar, one-on-one nutrition coaching, seasonal retreats, healthy talks and hands-on cooking workshops — all under one roof, on 6 KG 552 Street.</p>
+      <div class="signoff">— the BeYou team</div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Today's treasures.</h2>
+      <p>A small, changing menu, built around bowls that actually fill you up — plated fresh at the nutritive bar every day.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="photo"><img src="images/orzo_bowl.jpg" alt="Chicken Orzo Bowl"></div>
+        <div class="info">
+          <h3>Chicken Orzo Bowl</h3>
+          <p class="desc">Orzo, chicken, cucumber, olives, tomatoes, basil & feta cheese.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="photo"><img src="images/avocado_toast.jpg" alt="Avocado toast"></div>
+        <div class="info">
+          <h3>Plant Protein Bowl</h3>
+          <p class="desc">Lentils, arugula, strawberries, bulgur, avocado & basil vinaigrette.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="photo"><img src="images/smoothie.jpg" alt="The Morning Fuel smoothie"></div>
+        <div class="info">
+          <h3>The Morning Fuel</h3>
+          <p class="desc">Cashew, date, chia, oat and banana smoothie — tastes like a cheat meal, performs like a superfood.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What's on offer.</h2>
+      <p>Five ways to work with us, from a five-minute bowl to a full weekend away.</p>
+    </div>
+    <div class="service-list">
+      <div class="service-row">
+        <h3>Nutritive Bar</h3>
+        <p>Fresh, nutritionist-approved bowls, smoothies and light meals — ready to eat in or take away.</p>
+        <div class="num">Daily</div>
+      </div>
+      <div class="service-row">
+        <h3>Nutrition Coaching</h3>
+        <p>One-on-one guidance to build eating habits that fit your life, not a strict plan you'll abandon in a month. <a href="#book" style="color:var(--olive); font-weight:600; border-bottom:1px solid var(--olive); text-decoration:none;">Book a session &rarr;</a></p>
+        <div class="num">By appointment</div>
+      </div>
+      <div class="service-row">
+        <h3>Healthy Retreats</h3>
+        <p>Seasonal getaways that mix movement, whole food and rest — a proper reset away from the everyday.</p>
+        <div class="num">Seasonal</div>
+      </div>
+      <div class="service-row">
+        <h3>Healthy Talks</h3>
+        <p>Short, practical sessions on nutrition topics — from Ramadan eating to everyday energy and hydration.</p>
+        <div class="num">Monthly</div>
+      </div>
+      <div class="service-row">
+        <h3>Cooking Workshops</h3>
+        <p>Hands-on classes where you learn to make our bowls, smoothies and staples at home.</p>
+        <div class="num">Monthly</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap">
+    <div class="book-copy">
+      <div class="hero-eyebrow" style="color:var(--clay)">Nutrition Coaching</div>
+      <h2 style="font-size:2.1rem; margin-bottom:16px;">Meet with a nutritionist.</h2>
+      <p>One-on-one sessions to look at how you're actually eating and living, and build a plan around that — not a generic one. Tell us a bit about what you're after and a preferred time, and we'll confirm your slot over WhatsApp.</p>
+      <div class="steps">
+        <div><b>01</b> Fill in the short form with your details and preferred time.</div>
+        <div><b>02</b> We confirm your appointment on WhatsApp within a day.</div>
+        <div><b>03</b> Come in to 6 KG 552 St, Nyarutarama, or ask about a call.</div>
+      </div>
+    </div>
+
+    <form class="book-form" id="bookingForm">
+      <h3>Reserve your session</h3>
+      <div class="sub">Takes a minute — we'll confirm by WhatsApp.</div>
+
+      <div class="field">
+        <label for="bf-name">Full name</label>
+        <input id="bf-name" type="text" placeholder="e.g. Aline Uwase" required>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="bf-phone">Phone / WhatsApp number</label>
+          <input id="bf-phone" type="tel" placeholder="07xx xxx xxx" required>
+        </div>
+        <div class="field">
+          <label for="bf-type">Session type</label>
+          <select id="bf-type">
+            <option>First consultation</option>
+            <option>Follow-up session</option>
+            <option>Meal plan review</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="bf-date">Preferred date</label>
+          <input id="bf-date" type="date" required>
+        </div>
+        <div class="field">
+          <label for="bf-time">Preferred time</label>
+          <input id="bf-time" type="time" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="bf-notes">Anything we should know?</label>
+        <textarea id="bf-notes" placeholder="Goals, health conditions, dietary preferences..."></textarea>
+      </div>
+
+      <button type="submit">Send booking request</button>
+      <div class="book-note">This opens WhatsApp with your details pre-filled to our line, +250 795 448 852 — nothing is sent until you hit send there.</div>
+    </form>
+  </div>
+</section>
+
+<section class="plans" id="plans">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Join the tribe.</h2>
+      <p>Monthly plans built for how often you actually eat with us — all include free delivery.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan">
+        <h3>BeYou Vital</h3>
+        <div class="price">135K<span> RWF</span></div>
+        <ul>
+          <li>Buy 10 lunches, get 1 free</li>
+          <li>Free delivery</li>
+          <li>Valid 2 months from purchase</li>
+        </ul>
+        <a href="https://wa.me/250795448852" target="_blank" rel="noopener">Order now</a>
+      </div>
+      <div class="plan">
+        <h3>BeYou Bloom</h3>
+        <div class="price">155K<span> RWF</span></div>
+        <ul>
+          <li>3 lunches / week</li>
+          <li>1 free dessert + 1 free drink</li>
+          <li>Free delivery, monthly subscription</li>
+        </ul>
+        <a href="https://wa.me/250795448852" target="_blank" rel="noopener">Order now</a>
+      </div>
+      <div class="plan">
+        <h3>BeYou Thrive</h3>
+        <div class="price">215K<span> RWF</span></div>
+        <ul>
+          <li>4 lunches / week + 1 free breakfast</li>
+          <li>3 free drinks, 10% off all products</li>
+          <li>Free delivery, monthly subscription</li>
+        </ul>
+        <a href="https://wa.me/250795448852" target="_blank" rel="noopener">Order now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="event">
+  <div class="wrap">
+    <div class="event-copy">
+      <div class="hero-eyebrow">Brunch & Betterment</div>
+      <h2>Taste. Test. Reset.</h2>
+      <p>A nourishing, nutritionist-curated brunch — a granola bar, smoothie shots, a two-course meal and a short nutrition talk — thoughtfully built to leave you feeling your best.</p>
+      <div class="event-facts">
+        <div><b>When</b> First Monday of the month, 10am – 2pm</div>
+        <div><b>Where</b> BeYou, 6 KG 552 Street, Nyarutarama</div>
+        <div><b>Price</b> 32,000 RWF per person, all included</div>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/250795448852" target="_blank" rel="noopener">Reserve your spot</a>
+    </div>
+    <div class="event-photo">
+      <img src="images/bowl_spread.jpg" alt="Brunch spread with avocado, poached eggs and smoothies">
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Come find us.</h2>
+      <p>Drop by the space, send us a message, or follow along for the next talk, workshop or retreat.</p>
+      <div class="contact-details">
+        <div><b>Address</b> 6 KG 552 St, Nyarutarama, Kigali</div>
+        <div><b>WhatsApp</b> <a href="https://wa.me/250795448852" target="_blank" rel="noopener">+250 795 448 852</a></div>
+        <div><b>Instagram</b> <a href="https://instagram.com/beyou.holisticspace" target="_blank" rel="noopener">@beyou.holisticspace</a></div>
+      </div>
+    </div>
+    <div class="map-box">Map of 6 KG 552 St, Nyarutarama — add a Google Maps embed here once you have a business listing.</div>
+  </div>
+  <div class="foot-bottom wrap" style="max-width:1140px; margin:0 auto;">
+    <span>© 2026 BeYou Whole & Healthy</span>
+    <span>Kigali, Rwanda</span>
+  </div>
+</section>
+
+<script>
+  document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('bf-name').value.trim();
+    var phone = document.getElementById('bf-phone').value.trim();
+    var type = document.getElementById('bf-type').value;
+    var date = document.getElementById('bf-date').value;
+    var time = document.getElementById('bf-time').value;
+    var notes = document.getElementById('bf-notes').value.trim();
+
+    var lines = [
+      "Hi BeYou, I'd like to book a nutrition session.",
+      "Name: " + name,
+      "Phone: " + phone,
+      "Session type: " + type,
+      "Preferred date: " + (date || "-"),
+      "Preferred time: " + (time || "-")
+    ];
+    if(notes){ lines.push("Notes: " + notes); }
+
+    var message = encodeURIComponent(lines.join("\n"));
+    window.open("https://wa.me/250795448852?text=" + message, "_blank");
+  });
+</script>
+
+</body>
+</html>
