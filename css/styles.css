@@ -174,9 +174,9 @@
     background:rgba(246,242,232,0.06); color:var(--cream); font-family:'Work Sans',sans-serif; font-size:0.95rem;
   }
   .field select option{
-  background-color: #2a2f28;
-  color: #f6f2e8;
-}
+    background-color: #2a2f28;
+    color: #f6f2e8;
+  }
   .field input::placeholder, .field textarea::placeholder{ color:rgba(246,242,232,0.4); }
   .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   .field textarea{ resize:vertical; min-height:70px; }
